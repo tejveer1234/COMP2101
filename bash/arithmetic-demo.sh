@@ -15,12 +15,19 @@
 read -p "Give me a number : " firstnum
 read -p "Give me another number : " secondnum
 
-sum=$((firstnum - secondnum))
-dividend=$((firstnum * secondnum))
+sum=$((firstnum + secondnum))
+sub=$((firstnum - secondnum))
+division=$((firstnum / secondnum))
+multiply=$((firstnum * secondnum))
+rem=$((firstnum % secondnum))
+power=$((firstnum ** secondnum))
 fpdividend=$(awk "BEGIN{printf \"%.2f\", $firstnum/$secondnum}")
 
 cat <<EOF
-$firstnum subtraction $secondnum is $sum
-$firstnum multiplication by $secondnum is $dividend
+$firstnum subtraction $secondnum is $sub
+$firstnum sum by $secondnum is $sum
+$firstnum multiplication by $secondnum is $multiply
+$firstnum division by $secondnum is $division with rem $rem
   - More precisely, it is $fpdividend
+$firstnum power by $secondnum is $power
 EOF
