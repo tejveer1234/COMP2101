@@ -35,7 +35,7 @@ Hostname=$(hostname)
 LAN_Address=$(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}')|awk '/inet /{gsub(/\/.*/,"");print $2}')
 LAN_Hostname=$(getent hosts $(ip a s $(ip a |awk '/: e/{gsub(/:/,"");print $2}'))|awk '/inet /{gsub(/\/.*/,"");print $2}' | awk '{print $2}')
 External_IP=$(curl -s icanhazip.com)
-External_Name=$(getent hosts $(curl -s icanhazip.com) | awk '{print $2}')
+External_Name=$(getent hosts $(External_IP) | awk '{print $2}')
 
 cat <<EOF
 Hostname        : $Hostname
